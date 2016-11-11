@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UnsplashKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -23,6 +24,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             city = city.replacingOccurrences(of: " ", with: "-")
         }
         if city != "" {
+            self.loadImages(searchTerm: city)
             if let url = URL(string: "http://www.weather-forecast.com/locations/\(city.lowercased())/forecasts/latest") {
                 let request = NSMutableURLRequest(url: url)
                 let task = URLSession.shared.dataTask(with: request as URLRequest) {
@@ -71,16 +73,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func loadImages(searchTerm: String) {
+        UnsplashClient().randomPhoto(fromSearch: [searchTerm]) { result in
+            switch result {
+            case .success(let image):
+                self.bgImage.image = image
+                self.bgImage.contentMode = UIViewContentMode.scaleAspectFill
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cityInput.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
-        let url = URL(string: "https://images.unsplash.com/photo-1461906903741-bf21de16ae85")
-        let data = NSData(contentsOf: url!)
-        if data != nil {
-            bgImage.image = UIImage(data: data as! Data)
-            bgImage.contentMode = UIViewContentMode.scaleAspectFill
-        }
+        self.loadImages(searchTerm: "nature")
     }
 
     override func didReceiveMemoryWarning() {
