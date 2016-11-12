@@ -1,0 +1,6 @@
+framework module UnsplashKit {
+  umbrella header "UnsplashKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

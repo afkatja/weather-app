@@ -1,0 +1,6 @@
+framework module CarambaKit {
+  umbrella header "CarambaKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
