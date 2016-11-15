@@ -10,12 +10,17 @@ import UIKit
 import UnsplashKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var cityInput: UITextField!
     @IBOutlet weak var cityOutput: UILabel!
     @IBOutlet weak var weatherText: UILabel!
     var city = ""
+    var counter = 0.0
+    var timer = Timer()
+    
+    let progressIndicator = LoaderView(frame: CGRect.zero)
+    
     @IBAction func lookupCity(_ sender: Any) {
         city = cityInput.text ?? ""
         cityOutput.text = city.capitalized
@@ -74,21 +79,42 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func loadImages(searchTerm: String) {
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(animateLoader), userInfo: nil, repeats: true)
         UnsplashClient().randomPhoto(fromSearch: [searchTerm]) { result in
             switch result {
             case .success(let image):
                 self.bgImage.image = image
+                print("image result: \(image) for \(searchTerm)")
                 self.bgImage.contentMode = UIViewContentMode.scaleAspectFill
+                self.timer.invalidate()
+                self.progressIndicator.progress = 0
+                self.counter = 0
             case .failure(let error):
                 print(error)
+                self.timer.invalidate()
+                self.progressIndicator.progress = 0
+                self.counter = 0
             }
         }
+    }
+    
+    func animateLoader(){
+        self.counter += 0.1
+        if self.counter == 1 {
+            self.counter = 0
+        }
+        self.progressIndicator.progress = CGFloat(self.counter)
+        print(self.counter)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cityInput.delegate = self
-        self.loadImages(searchTerm: "nature")
+        self.view.addSubview(self.progressIndicator)
+        self.progressIndicator.isUserInteractionEnabled = false
+        self.progressIndicator.frame = self.view.bounds
+        self.progressIndicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //self.loadImages(searchTerm: "nature")
     }
 
     override func didReceiveMemoryWarning() {

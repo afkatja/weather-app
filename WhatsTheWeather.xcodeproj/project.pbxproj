@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		50869B30B0AF016031298BA9 /* Pods_WhatsTheWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37172F27444A4146A420683 /* Pods_WhatsTheWeather.framework */; };
+		C2427ADE1DDB3100001CBD42 /* photo-1432071315934-33a387ee0437.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C2427ADD1DDB3100001CBD42 /* photo-1432071315934-33a387ee0437.jpeg */; };
+		C2427AE01DDB328B001CBD42 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2427ADF1DDB328B001CBD42 /* LoaderView.swift */; };
 		C242CFEC1DD5F4BA0041D9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242CFEB1DD5F4BA0041D9DA /* AppDelegate.swift */; };
 		C242CFEE1DD5F4BA0041D9DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242CFED1DD5F4BA0041D9DA /* ViewController.swift */; };
 		C242CFF11DD5F4BA0041D9DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C242CFEF1DD5F4BA0041D9DA /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		683668CDE01F9AFB73A90A8B /* Pods-WhatsTheWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheWeather/Pods-WhatsTheWeather.release.xcconfig"; sourceTree = "<group>"; };
 		B37172F27444A4146A420683 /* Pods_WhatsTheWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsTheWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2427ADD1DDB3100001CBD42 /* photo-1432071315934-33a387ee0437.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo-1432071315934-33a387ee0437.jpeg"; sourceTree = "<group>"; };
+		C2427ADF1DDB328B001CBD42 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		C242CFE81DD5F4BA0041D9DA /* WhatsTheWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTheWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242CFEB1DD5F4BA0041D9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C242CFED1DD5F4BA0041D9DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +76,9 @@
 				C242CFEB1DD5F4BA0041D9DA /* AppDelegate.swift */,
 				C242CFED1DD5F4BA0041D9DA /* ViewController.swift */,
 				C242CFEF1DD5F4BA0041D9DA /* Main.storyboard */,
+				C2427ADF1DDB328B001CBD42 /* LoaderView.swift */,
 				C242CFF21DD5F4BA0041D9DA /* Assets.xcassets */,
+				C2427ADD1DDB3100001CBD42 /* photo-1432071315934-33a387ee0437.jpeg */,
 				C242CFF41DD5F4BA0041D9DA /* LaunchScreen.storyboard */,
 				C242CFF71DD5F4BA0041D9DA /* Info.plist */,
 			);
@@ -152,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C242CFF61DD5F4BA0041D9DA /* LaunchScreen.storyboard in Resources */,
+				C2427ADE1DDB3100001CBD42 /* photo-1432071315934-33a387ee0437.jpeg in Resources */,
 				C242CFF31DD5F4BA0041D9DA /* Assets.xcassets in Resources */,
 				C242CFF11DD5F4BA0041D9DA /* Main.storyboard in Resources */,
 			);
@@ -214,6 +221,7 @@
 			files = (
 				C242CFEE1DD5F4BA0041D9DA /* ViewController.swift in Sources */,
 				C242CFEC1DD5F4BA0041D9DA /* AppDelegate.swift in Sources */,
+				C2427AE01DDB328B001CBD42 /* LoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
